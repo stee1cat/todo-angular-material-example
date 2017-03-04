@@ -1,0 +1,40 @@
+{
+  "name": "todo-angular-material-example",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ToDo-список на AngularJS",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stee1cat/todo-angular-material-example.git"
+  },
+  "keywords": [
+    "angularjs",
+    "example",
+    "angular-material"
+  ],
+  "author": "Gennadiy Khatuntsev <e.steelcat@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stee1cat/todo-angular-material-example/issues"
+  },
+  "homepage": "https://github.com/stee1cat/todo-angular-material-example#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-preset-es2015": "^6.22.0",
+    "babelify": "^7.3.0",
+    "browserify": "^14.1.0",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-if": "^2.0.2",
+    "gulp-sequence": "^0.4.6",
+    "gulp-sourcemaps": "^2.4.1",
+    "gulp-uglify": "^2.0.1",
+    "gulp-webserver": "^0.9.1",
+    "pugify": "^2.1.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
