@@ -5,4 +5,4 @@
 const gulp = require('gulp');
 const sequence = require('gulp-sequence');
 
-gulp.task('build', sequence('clean', 'templates', 'scripts'));
+gulp.task('build', sequence('clean', 'templates', 'scripts', 'styles'));

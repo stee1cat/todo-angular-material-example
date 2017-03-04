@@ -10,7 +10,12 @@ module.exports = {
     scripts: {
         src: 'app/js/**/*.js',
         dest: 'build/js',
-        entries: 'app/js/app.js'
+        entries: 'app/js/bootstrap.js'
+    },
+    styles: {
+        src: 'app/sass/**/*.scss',
+        dest: 'build/css',
+        entries: 'app/sass/style.scss'
     },
     templates: {
         index: 'app/templates/index.pug',

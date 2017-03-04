@@ -7,4 +7,5 @@ const config = require('../config');
 
 gulp.task('watch', ['default'], function () {
     gulp.watch(config.scripts.src, ['scripts']);
+    gulp.watch(config.styles.src, ['styles']);
 });
