@@ -13,7 +13,7 @@ module.exports = {
         entries: 'app/js/app.js'
     },
     templates: {
-        index: './index.html',
+        index: 'app/templates/index.pug',
         src: 'app/templates/**/*.pug',
         dest: 'build/templates'
     }
