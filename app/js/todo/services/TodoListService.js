@@ -2,16 +2,30 @@
  * Copyright (c) 2017 Gennadiy Khatuntsev <e.steelcat@gmail.com>
  */
 
+const ITEMS_KEY = 'todo-list';
+
 class TodoListService {
 
-    constructor($q) {
+    constructor($q, LocalStorageService) {
         this.$q = $q;
-
+        this.localStorageService = LocalStorageService;
         this.items = [];
     }
 
     loadAll() {
-        return this.$q.when(this.items);
+        return this.$q((resolve) => {
+            this.items = this.localStorageService.get(ITEMS_KEY);
+
+            if (!this.items) {
+                this.items = [];
+            }
+
+            resolve(this.items);
+        });
+    }
+
+    saveAll() {
+        this.localStorageService.set(ITEMS_KEY, this.items);
     }
 
     add(item) {
@@ -20,6 +34,8 @@ class TodoListService {
                 id: Date.now(),
                 done: false
             }, item));
+
+            this.saveAll();
         }
     }
 
@@ -29,6 +45,8 @@ class TodoListService {
         if (item) {
             item.text = newItem.text;
             item.done = newItem.done;
+
+            this.saveAll();
         }
     }
 
@@ -37,6 +55,8 @@ class TodoListService {
 
         if ((index = this.items.indexOf(item)) !== -1) {
             this.items.splice(index, 1);
+
+            this.saveAll();
         }
     }
 
@@ -46,4 +66,4 @@ class TodoListService {
 
 }
 
-export default ['$q', TodoListService];
+export default ['$q', 'LocalStorageService', TodoListService];
