@@ -1,9 +1,9 @@
-md-card(layout='row')
+md-card(layout='row' data-id='{{$ctrl.data.id}}')
     md-card-content(flex='80')
         | {{$ctrl.data.text}}
     md-card-actions(layout='row' layout-align='start right')
         md-toolbar
-            md-button(aria-label='Выполнена' class='md-icon-button' ng-click='$ctrl.markAsDone()')
-                md-icon(md-font-icon='icon-done')
-            todo-item-menu
-
+            md-button(aria-label='Выполнена' class='md-icon-button' ng-click='$ctrl.toggleDone()')
+                md-icon(md-font-icon='icon-checkbox-blank' ng-show='!$ctrl.data.done')
+                md-icon(md-font-icon='icon-checkbox' ng-show='$ctrl.data.done')
+            todo-item-menu(on-edit='$ctrl.edit($event)' on-remove='$ctrl.remove($event)')

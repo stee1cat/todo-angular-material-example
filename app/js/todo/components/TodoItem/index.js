@@ -12,6 +12,6 @@ export default {
             data: '<'
         },
         template: template(),
-        controller: TodoItemController
+        controller: ['TodoListService', '$mdDialog', TodoItemController]
     }
 };

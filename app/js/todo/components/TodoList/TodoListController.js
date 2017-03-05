@@ -2,10 +2,13 @@
  * Copyright (c) 2017 Gennadiy Khatuntsev <e.steelcat@gmail.com>
  */
 
+import TodoItemDialog from '../TodoItemDialog';
+
 class TodoListController {
 
-    constructor(TodoListService) {
+    constructor(TodoListService, $mdDialog) {
         this.todoListService = TodoListService;
+        this.$mdDialog = $mdDialog;
 
         this.init();
     }
@@ -15,10 +18,19 @@ class TodoListController {
             .then(items => this.items = items);
     }
 
-    add() {
+    add(event) {
+        let dialog = new TodoItemDialog({
+            title: 'Новая задача',
+            targetEvent: event,
+            text: ''
+        });
 
+        this.$mdDialog.show(dialog)
+            .then(text => this.todoListService.add({
+                text
+            }), () => dialog = null);
     }
 
 }
 
-export default ['TodoListService', TodoListController];
+export default TodoListController;

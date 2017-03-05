@@ -1,5 +1,14 @@
+div(layout='column' layout-align='center center' ng-show='!$ctrl.items.length')
+    div Нет ни одной задачи
+    div
+        md-button(ng-click='$ctrl.add()' class='md-primary') Создать
+
 div(layout='row' layout-xs='column' layout-wrap)
-    div(ng-repeat='item in $ctrl.items' flex-sm='50' flex-gt-sm='25')
+    div(ng-repeat='item in $ctrl.items | filter: {done: "false"} | orderBy: "-id"' flex-sm='50' flex-gt-sm='25')
         todo-item(data='item')
-    md-button(class='md-fab md-warn md-fab-bottom-right' ng-click='$ctrl.add()' aria-label='Добавить')
+
+    div(ng-repeat='item in $ctrl.items | filter: {done: "true"} | orderBy: "-id"' flex-sm='50' flex-gt-sm='25')
+        todo-item(data='item')
+
+    md-button(class='md-fab md-warn md-fab-bottom-right' ng-click='$ctrl.add($event)' aria-label='Добавить')
         md-icon(md-font-icon='icon-add')

@@ -8,7 +8,10 @@ import template from './template.pug';
 export default {
     name: 'todoItemMenu',
     config: {
-        bindings: {},
+        bindings: {
+            edit: '&onEdit',
+            remove: '&onRemove'
+        },
         template: template(),
         controller: TodoItemMenuController
     }

@@ -1,0 +1,20 @@
+md-dialog(aria-label='{{$ctrl.modal.title}}' style='min-width: 400px; min-height: 200px')
+    md-toolbar
+        div(class='md-toolbar-tools')
+            h2 {{$ctrl.modal.title}}
+            span(flex)
+            md-button(class='md-icon-button' ng-click='$ctrl.close()')
+                md-icon(md-font-icon='icon-close' aria-label='Закрыть окно')
+
+    md-dialog-content
+        md-content(layout-padding)
+            form(name='task')
+                md-input-container(class='md-block')
+                    label Задача
+                    textarea(name='text' ng-model='$ctrl.modal.text' required)
+                    div(ng-messages='task.text.$error' ng-show='task.text.$error')
+                        div(ng-message='required') Укажите текст задачи
+
+    md-dialog-actions(layout='row')
+        md-button(ng-click='$ctrl.cancel()') Отмена
+        md-button(ng-click='$ctrl.save()') Сохранить

@@ -8,14 +8,6 @@ class TodoItemMenuController {
         menu.open(event);
     }
 
-    edit() {
-        console.log('edit');
-    }
-
-    remove() {
-        console.log('remove');
-    }
-
 }
 
 export default TodoItemMenuController;
