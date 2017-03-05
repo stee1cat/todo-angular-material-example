@@ -1,9 +1,10 @@
 doctype html
 html
     include includes/head
-    body(layout='column' ng-controller='ToDoController as todo')
-
+    body(layout='column' ng-controller='AppController as app')
         md-toolbar(layout='row' class='md-toolbar-tools')
-            h1 {{todo.hi}}
+            h1 Список задач
+        md-content(class='md-padding')
+            todo-list
 
         script(src='/js/app.min.js')

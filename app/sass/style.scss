@@ -1,1 +1,29 @@
 @import "../../node_modules/angular-material/angular-material.scss";
+
+.icon-more-horiz:before {
+  content: '\e5d3';
+}
+
+.icon-mode-edit:before {
+  content: '\e254';
+}
+
+.icon-delete-forever:before {
+  content: '\e92b';
+}
+
+.icon-done:before {
+  content: '\e876';
+}
+
+.icon-add:before {
+  content: '\e145';
+}
+
+md-card md-toolbar:not(.md-menu-toolbar) {
+  background-color: #ffffff;
+}
+
+md-card md-toolbar:not(.md-menu-toolbar) md-icon {
+  color: rgba(0, 0, 0, 0.87);
+}

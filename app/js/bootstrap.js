@@ -3,12 +3,18 @@
  */
 
 import angular from 'angular';
+
+import 'angular-animate';
+import 'angular-aria';
+
 import ToDo from './todo/ToDo';
+import AppController from './AppController';
 
 angular.element(document)
     .ready(function () {
         angular.module('app', [ToDo.name])
-            .run(() => console.log('Started'));
+            .controller('AppController', AppController)
+            .run();
 
         let body = document.getElementsByTagName('body')[0];
         angular.bootstrap(body, ['app']);

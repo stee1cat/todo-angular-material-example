@@ -5,10 +5,13 @@
 import angular from 'angular';
 import material from 'angular-material';
 
-import 'angular-animate';
-import 'angular-aria';
-
-import ToDoController from './ToDoController';
+import TodoListService from './services/TodoListService';
+import TodoList from './components/TodoList';
+import TodoItem from './components/TodoItem';
+import TodoItemMenu from './components/TodoItemMenu';
 
 export default angular.module('ToDo', [material])
-    .controller('ToDoController', ToDoController);
+    .component(TodoList.name, TodoList.config)
+    .component(TodoItem.name, TodoItem.config)
+    .component(TodoItemMenu.name, TodoItemMenu.config)
+    .service('TodoListService', TodoListService);

@@ -1,0 +1,9 @@
+md-card(layout='row')
+    md-card-content(flex='80')
+        | {{$ctrl.data.text}}
+    md-card-actions(layout='row' layout-align='start right')
+        md-toolbar
+            md-button(aria-label='Выполнена' class='md-icon-button' ng-click='$ctrl.markAsDone()')
+                md-icon(md-font-icon='icon-done')
+            todo-item-menu
+

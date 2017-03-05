@@ -1,0 +1,12 @@
+md-menu
+    md-button(aria-label='Открыть меню' class='md-icon-button' ng-click='$ctrl.openMenu($mdMenu, $event)')
+        md-icon(md-font-icon='icon-more-horiz')
+    md-menu-content
+        md-menu-item
+            md-button(ng-click='$ctrl.edit($event)')
+                md-icon(md-font-icon='icon-mode-edit')
+                | Редактировать
+        md-menu-item
+            md-button(ng-click='$ctrl.remove($event)')
+                md-icon(md-font-icon='icon-delete-forever')
+                | Удалить

@@ -1,0 +1,5 @@
+div(layout='row' layout-xs='column' layout-wrap)
+    div(ng-repeat='item in $ctrl.items' flex-sm='50' flex-gt-sm='25')
+        todo-item(data='item')
+    md-button(class='md-fab md-warn md-fab-bottom-right' ng-click='$ctrl.add()' aria-label='Добавить')
+        md-icon(md-font-icon='icon-add')

@@ -28,7 +28,7 @@ gulp.task('scripts', function () {
         .pipe(gulpIf(config.debug, sourcemaps.init({
             loadMaps: true
         })))
-        .pipe(uglify())
+        .pipe(gulpIf(!config.debug, uglify()))
         .pipe(gulpIf(config.debug, sourcemaps.write('./')))
         .pipe(gulp.dest(config.scripts.dest));
 });

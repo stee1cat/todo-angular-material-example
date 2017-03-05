@@ -19,7 +19,7 @@ module.exports = {
     },
     templates: {
         index: 'app/templates/index.pug',
-        src: 'app/templates/**/*.pug',
+        src: 'app/{templates,js}/**/*.pug',
         dest: 'build/templates'
     }
 };
