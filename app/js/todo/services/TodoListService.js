@@ -2,6 +2,8 @@
  * Copyright (c) 2017 Gennadiy Khatuntsev <e.steelcat@gmail.com>
  */
 
+import angular from 'angular';
+
 const ITEMS_KEY = 'todo-list';
 
 class TodoListService {
@@ -30,9 +32,9 @@ class TodoListService {
 
     add(item) {
         if (item && item.text) {
-            this.items.unshift(Object.assign({}, {
+            this.items.unshift(angular.extend({}, {
                 id: Date.now(),
-                done: false
+                done: 0
             }, item));
 
             this.saveAll();
@@ -44,7 +46,7 @@ class TodoListService {
 
         if (item) {
             item.text = newItem.text;
-            item.done = newItem.done;
+            item.done = newItem.done ? 1 : 0;
 
             this.saveAll();
         }
@@ -61,7 +63,17 @@ class TodoListService {
     }
 
     find(id) {
-        return this.items.find(item => item.id == id);
+        let i = 0,
+            length = this.items.length;
+
+        // Без полифила для IE11
+        for (; i < length; i++) {
+            if (this.items[i].id == id) {
+                return this.items[i];
+            }
+        }
+
+        return false;
     }
 
 }

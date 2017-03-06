@@ -2,6 +2,8 @@
  * Copyright (c) 2017 Gennadiy Khatuntsev <e.steelcat@gmail.com>
  */
 
+import angular from 'angular';
+
 class LocalStorageService {
 
     constructor() {
@@ -16,7 +18,10 @@ class LocalStorageService {
         let value;
 
         if (this.storage) {
-            value = JSON.parse(this.storage.getItem(key));
+            try {
+                value = angular.fromJson(this.storage.getItem(key));
+            }
+            catch (e) {}
         }
 
         return value;
@@ -24,7 +29,7 @@ class LocalStorageService {
 
     set(key, value) {
         if (this.storage) {
-            this.storage.setItem(key, JSON.stringify(value));
+            this.storage.setItem(key, angular.toJson(value));
         }
     }
 
